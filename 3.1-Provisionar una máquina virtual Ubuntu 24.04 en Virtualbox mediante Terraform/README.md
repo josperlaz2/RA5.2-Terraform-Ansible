@@ -86,18 +86,25 @@ Asegúrate de tener los siguientes requisitos instalados en tu sistema:
 
     Revisa la salida para asegurarte de que la configuración es la esperada.
 
+
+    ![tf_plan](../assets/tf_plan.png)
+
+
 3.  **Aplica la configuración y crea la máquina virtual:**
 
     Ejecuta el siguiente comando para que Terraform cree la máquina virtual en Virtualbox:
 
     ```bash
-    terraform apply -auto-approve
+    terraform apply
     ```
 
-    El flag `-auto-approve` evita que Terraform te pida confirmación antes de realizar los cambios.
 
-## Captura de Pantalla
+    ![tf_apply](../assets/tf_apply.png)
 
-Una vez que Terraform haya creado la máquina virtual, abre la interfaz de Virtualbox. Deberías ver una nueva máquina virtual llamada `ubuntu-` seguido de una marca de tiempo (por ejemplo, `ubuntu-20250519-214000`). Toma una captura de pantalla de la ventana de Virtualbox mostrando esta nueva máquina virtual.
 
-**Nota:** En este punto, la máquina virtual se habrá creado, pero el sistema operativo Ubuntu 24.04 aún no estará configurado dentro de ella. La primera vez que inicies la máquina virtual desde Virtualbox, comenzará el proceso de instalación del sistema operativo desde la imagen OVA.
+## Resultado final
+
+Podemos ver como una vez haya terminado de configurar todo `terraform` nos crea la maquina `ubntu` y nos la arranca con la configuración que le hemos especificada.
+
+
+![vm_ubuntu](../assets/vm_ubuntu.png)
