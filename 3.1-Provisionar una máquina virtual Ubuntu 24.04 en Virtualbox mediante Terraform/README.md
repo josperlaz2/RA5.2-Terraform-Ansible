@@ -71,7 +71,7 @@ Asegúrate de tener los siguientes requisitos instalados en tu sistema:
     ```
 
     Este comando descarga y configura el proveedor de Virtualbox especificado en el archivo `main.tf`.
-![tf_init](".././tf_init.png")
+![tf_init]("../../tf_init.png")
 2.  **Planifica la creación de la máquina virtual:**
 
     Ejecuta el siguiente comando para ver un resumen de las acciones que Terraform realizará:
