@@ -70,7 +70,7 @@ Asegúrate de tener los siguientes requisitos instalados en tu sistema:
     terraform init
     ```
 
-    Este comando descarga y configura el proveedor de Virtualbox especificado en el archivo `main.tf`.
+    Este comando descarga y configura el proveedor de Virtualbox especificado en el archivo `main.tf`./n
 ![tf_init](../assets/tf_init.png)
 2.  **Planifica la creación de la máquina virtual:**
 
