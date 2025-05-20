@@ -37,9 +37,15 @@ Este documento detalla los pasos para configurar una máquina virtual Ubuntu 24.
         ![InstallAnsible1](../assets/InstallAnsible1.png)
 
             sudo apt-add-repository --yes --update ppa:ansible/ansible
+
+        ![InstallAnsible1](../assets/InstallAnsible2.png)
+
             sudo apt install ansible
+
+        ![InstallAnsible1](../assets/InstallAnsible3.png)
+
             ```
-        * **En macOS (con Homebrew):**
+        * **En macOS(con Homebrew):**
             ```bash
             brew install ansible
             ```
