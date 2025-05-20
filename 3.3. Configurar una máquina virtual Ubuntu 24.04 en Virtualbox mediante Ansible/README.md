@@ -6,7 +6,7 @@ Este documento amplía la configuración de una máquina virtual Ubuntu 24.04 en
 
 ## 3.3. Configurar una Máquina Virtual Ubuntu 24.04 en Virtualbox mediante Ansible (Despliegue Web Avanzado)
 
-En esta sección, continuaremos trabajando en el directorio de nuestro proyecto Ansible (`ansible-ubuntu`) para mejorar nuestro playbook y desplegar una página web más elaborada.
+En esta sección, continuaremos trabajando en el directorio de nuestro proyecto Ansible (`ansible`) para mejorar nuestro playbook y desplegar una página web más elaborada.
 
 ### Modificación del Playbook de Ansible (`configure_ubuntu.yml`)
 
@@ -112,6 +112,9 @@ Aquí está el contenido actualizado de tu archivo `configure_ubuntu.yml`:
         name: apache2
         state: restarted
 ```
+
+![ConfUbun_yml2](../assets/ConfUbun_yml2.png)
+
 ---
 ### Nuevas Tareas Incluidas en el Playbook
 
@@ -130,10 +133,12 @@ Las siguientes tareas se han añadido a `configure_ubuntu.yml` para el despliegu
 Desde tu máquina de control, navega al directorio donde guardaste los archivos `hosts.ini` y `configure_ubuntu.yml`. Luego, ejecuta el playbook con el siguiente comando:
 
 ```bash
-ansible-playbook -i hosts.ini configure_ubuntu.yml
+ansible-playbook -i hosts.ini configure_ubuntu.yml -k -K
 ```
 
 * Ansible te pedirá la contraseña para el usuario configurado en tu máquina virtual Ubuntu (definido en `hosts.ini` con `ansible_user`).
+
+![EjecucionAnsible2](../assets/EjecucionAnsible2.png)
 
 ### Validación (desde tu máquina local)
 Para confirmar que el playbook se ejecutó correctamente y que el nuevo contenido web está disponible, abre una terminal en tu máquina local y usa `curl` para obtener el contenido del servidor web de la máquina virtual Ubuntu. Asegúrate de reemplazar `<IP_DE_TU_MAQUINA_VIRTUAL>` con la dirección IP correcta de tu VM Ubuntu (en este caso, `192.168.0.31`).
@@ -142,3 +147,13 @@ Para confirmar que el playbook se ejecutó correctamente y que el nuevo contenid
 curl [http://192.168.0.31](http://192.168.0.31) 
 ```
 * Deberías ver la salida HTML completa que definimos en el playbook, comenzando con `<!DOCTYPE html>` y conteniendo el mensaje "¡Ansible Rocks el Mundo de la Automatización!". Esto valida que Apache está sirviendo el contenido actualizado
+
+![curl](../assets/curl.png)
+
+* **Desde la máquina de control:**
+    * Abre un navegador web y accede a la dirección IP de la VM Ubuntu (`http://192.168.0.31`) para confirmar que la página de inicio de Apache se muestra correctamente.
+
+![WebAnsible](../assets/WebAnsible.png)
+
+* Podemos ver la web que se ha diseñado y cargado desde ``ansible``
+
