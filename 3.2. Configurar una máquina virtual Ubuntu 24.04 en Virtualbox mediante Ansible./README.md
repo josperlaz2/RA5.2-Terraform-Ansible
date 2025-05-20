@@ -45,11 +45,6 @@ Este documento detalla los pasos para configurar una máquina virtual Ubuntu 24.
         ![InstallAnsible1](../assets/InstallAnsible3.png)
 
         
-
-        * **En macOS(con Homebrew):**
-            ```bash
-            brew install ansible
-            ```
         * Para otros sistemas operativos, consulta la [documentación de Ansible](https://docs.ansible.com/installation_guide/index.html).
 
 * **Crear los archivos de Ansible:**
@@ -65,6 +60,9 @@ Este documento detalla los pasos para configurar una máquina virtual Ubuntu 24.
         ansible_ssh_common_args='-o StrictHostKeyChecking=no'
         ```
         **Nota:** Reemplaza `administrador` con el nombre de usuario que utilizas en tu máquina virtual Ubuntu.
+
+        ![hosts_ini](../assets/hosts_ini.png)
+
 
     * **Archivo `configure_ubuntu.yml`:**
         ```yaml
@@ -90,13 +88,17 @@ Este documento detalla los pasos para configurar una máquina virtual Ubuntu 24.
                 state: present
         ```
 
+        ![ConfUbun_yml](../assets/ConfUbun_yml.png)
+
 ### 2. Ejecutar el Playbook de Ansible
 
 * Desde la máquina de control, en el directorio donde guardaste los archivos, ejecuta el siguiente comando:
     ```bash
-    ansible-playbook configure_ubuntu.yml -i hosts.ini
+    ansible-playbook configure_ubuntu.yml -i hosts.ini -k -K
     ```
 * Ansible te pedirá la contraseña para el usuario `administrador` (o el usuario configurado en `hosts.ini`) en la VM de Ubuntu.
+
+![EjecucionAnsible](../assets/EjecucionAnsible.png)
 
 ### 3. Verificar la instalación de Apache
 
@@ -105,8 +107,11 @@ Este documento detalla los pasos para configurar una máquina virtual Ubuntu 24.
         ```bash
         sudo systemctl status apache2
         ```
+![ServApache2](../ServApache2.png)
 
 * **Desde la máquina de control:**
     * Abre un navegador web y accede a la dirección IP de la VM Ubuntu (`http://192.168.0.31`) para confirmar que la página de inicio de Apache se muestra correctamente.
+
+![Apache2](../assets/Apache2.png)
 
 Con estos pasos, habrás configurado la VM de Ubuntu utilizando Ansible.
