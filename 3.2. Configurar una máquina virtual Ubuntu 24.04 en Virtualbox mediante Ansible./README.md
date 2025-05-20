@@ -107,7 +107,7 @@ Este documento detalla los pasos para configurar una máquina virtual Ubuntu 24.
         ```bash
         sudo systemctl status apache2
         ```
-![ServApache2](../ServApache2.png)
+![ServApache2](../assets/ServApache2.png)
 
 * **Desde la máquina de control:**
     * Abre un navegador web y accede a la dirección IP de la VM Ubuntu (`http://192.168.0.31`) para confirmar que la página de inicio de Apache se muestra correctamente.
